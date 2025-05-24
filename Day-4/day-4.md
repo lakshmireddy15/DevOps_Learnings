@@ -58,3 +58,15 @@ If there is any issue after accessing something in a browser, it could be due to
 
 1. **Private Key** – Used to authenticate and decrypt data.
 2. **Public Key** – Shared with others to encrypt data.
+
+AMI -----> Amazon machine image
+AMI name ----> devops-practice
+password -----> DevOps321
+user name -----> ec2-user
+
+It is not keybased is password. 
+It is a template used to lanch the Ec2 instances in AWS.
+It includes OS,software and settings need to start an intances
+
+Internal communication should be done using private key
+External comminucation should be done using public key
