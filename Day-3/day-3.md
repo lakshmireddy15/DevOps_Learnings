@@ -52,6 +52,60 @@ Instead, it uses the **Operating System (OS)**.
 - Software that **manages hardware** and lets applications run.
 
 ---
+# 🖥️ Physical Machine vs Virtual Machine
+
+## What is a Physical Machine?
+- A **physical machine** is a real, tangible computer or server.
+- It contains actual **hardware components** such as:
+  - **CPU (Central Processing Unit)**
+  - **RAM (Memory)**
+  - **Storage** (Hard disk or SSD)
+  - **Network interfaces** (LAN/Wi-Fi)
+- Requires **physical access** for:
+  - Maintenance
+  - Hardware upgrades
+  - Troubleshooting
+- **Example:** Personal desktop computer, on-premise server.
+
+---
+
+## 💻 What is a Virtual Machine (VM)?
+- A **virtual machine** is a software-based emulation of a computer.
+- It runs on a **physical machine** using a **hypervisor** (e.g., VMware, VirtualBox, KVM).
+- Allows **multiple VMs to run on a single physical server**.
+- Each VM has:
+  - Its own virtual CPU
+  - Virtual RAM
+  - Virtual storage
+  - Separate operating system (OS)
+- Provides **isolation**: Each VM operates independently.
+- Common uses:
+  - **Cloud platforms** (AWS, Azure, GCP)
+  - **Development and testing**
+  - **Running different operating systems**
+
+---
+
+# 🧩 Hardware and Software Components
+
+## 🔧 Hardware Components
+These are the **physical parts** of a computer system:
+- **CPU** – Central Processing Unit
+- **RAM** – Random Access Memory
+- **Input devices** – Mouse, keyboard, microphone
+- **Output devices** – Monitor, printer, speakers
+- **Storage devices** – Hard drive, SSD
+
+## 💾 Software Components
+- Software is a **collection of instructions and data** that tells the hardware what to do.
+- Types of software:
+  - **Operating System** (e.g., Windows, Linux, macOS)
+  - **Application Software** (e.g., browsers, games, text editors)
+  - **Device Drivers** (to control hardware devices)
+
+---
+
+
 
 ## 🔄 System Architecture
 
