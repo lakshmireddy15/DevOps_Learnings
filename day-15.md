@@ -88,3 +88,76 @@ Ansible Server (Config) ----SSH----> Node 1
 4. Easier to manage and scale
 
 ---
+
+
+# Ansible Remote Login and Basic Usage
+
+## Overview
+
+Ansible allows remote login to another server from a control server (e.g., server1 to server2) using SSH. This method allows operations to be performed on remote nodes from the control machine.
+
+### In the Background:
+1. An SSH connection is established.
+2. A file with the desired content or instructions is created.
+3. The connection is closed after execution.
+
+## Architecture
+
+- **Control Node (server1)**: The Ansible server where Ansible is installed.
+- **Managed Nodes (server2 and others)**: Target machines where tasks are performed via SSH.
+- **Note**: No need to install anything on the node side.
+
+Ansible can connect to **multiple servers simultaneously** and execute commands.
+
+---
+
+## Installing Ansible on the Control Server
+
+```bash
+sudo dnf install ansible -y
+```
+
+---
+
+## Ansible Syntax
+
+General structure:
+
+```bash
+<command> <options> <inputs>
+```
+
+---
+
+## Check Connection to Node
+
+```bash
+ansible all -i 172.31.80.5, -e ansible_user=ec2-user -e ansible_password=DevOps321 -m ping
+```
+
+---
+
+## Install and Start NGINX on Remote Node
+
+### Install NGINX
+
+```bash
+ansible all -i 172.31.80.5, -e ansible_user=ec2-user -e ansible_password=DevOps321 -b -m dnf -a "name=nginx state=installed"
+```
+
+### Start NGINX Service
+
+```bash
+ansible all -i 172.31.80.5, -e ansible_user=ec2-user -e ansible_password=DevOps321 -b -m service -a "name=nginx state=started"
+```
+
+---
+
+## Notes
+
+- `-i` specifies the inventory (in this case, a single IP).
+- `-e` is used to pass extra variables like username and password.
+- `-b` allows privilege escalation (e.g., sudo).
+- `-m` specifies the module (e.g., `ping`, `dnf`, `service`).
+- `-a` allows you to pass arguments to the module.
+
