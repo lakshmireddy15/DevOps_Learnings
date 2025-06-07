@@ -148,7 +148,8 @@ ansible all -i 172.31.80.5, -e ansible_user=ec2-user -e ansible_password=DevOps3
 ### Start NGINX Service
 
 ```bash
-ansible all -i 172.31.80.5, -e ansible_user=ec2-user -e ansible_password=DevOps321 -b -m service -a "name=nginx state=started"
+ansible all -i ,PRVIATEIP>, -e ansible_user=ec2-user -e ansible_password=DevOps321 -b -m service -a "name=nginx state=started"
+
 ```
 
 ---
