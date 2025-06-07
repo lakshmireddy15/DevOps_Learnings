@@ -132,7 +132,7 @@ General structure:
 ## Check Connection to Node
 
 ```bash
-ansible all -i 172.31.80.5, -e ansible_user=ec2-user -e ansible_password=DevOps321 -m ping
+ansible all -i  <privare_io>, -e ansible_user=ec2-user -e ansible_password=DevOps321 -m ping
 ```
 
 ---
