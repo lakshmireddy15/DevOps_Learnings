@@ -78,6 +78,24 @@
 - 1 for broadcast address (all bits 1).
 - 1 for network address (all bits 0).
 
+windows
+-----------
+not open source
+costly
+not secure must install anti virus
+slow
+too many graphics
+frequent restarts
+tough to update/upgrade
+
+Linux --> 9MB
+Secure
+high speed --> mostly text
+no need of restarts
+install or update packages is easy
+free, community support
+low resources
+
 ### Examples:
 - `/24`:  
 - 32-24 = 8 host bits  
