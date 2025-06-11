@@ -67,6 +67,9 @@ SDLC stands for **Software Development Life Cycle**. It is a step-by-step proces
    - Provide updates, fixes, and enhancements as required.
 
 ---
+DevOps is the process of building, deploying and testing the code written by developer on the same day instead of doing after complete development.. we can acheive this using continous integration, continous deployment, continous delivery and continous testing. 
+We can do faster releases with less defect using DevOps... basically automation mindset to get the best results
+
 
 ## Conclusion
 
