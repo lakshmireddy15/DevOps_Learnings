@@ -1,95 +1,100 @@
 
 # Terraform and AWS CLI Setup Guide
 
-## AWS CLI Installation and Configuration
+## Step 1: Install and Configure AWS CLI
 
 1. **Install AWS CLI v2**
-2. **Open Git Bash** and configure AWS CLI:
+2. Open **Git Bash**, and run:
    ```bash
    aws configure
    ```
-   Provide the following when prompted:
-   - Access Key ID
-   - Secret Access Key
+   - Enter your **Access Key**
+   - Enter your **Secret Key**
 
-## Terraform Commands
+## Step 2: Navigate to Terraform Folder
 
-1. **Navigate to the Terraform Folder**
-2. **Initialize Terraform**
-   ```bash
-   terraform init
-   ```
-   - Initializes an empty working directory.
-   - Downloads all provider plugins.
+Run the following commands in order:
 
-3. **Preview Changes**
-   ```bash
-   terraform plan
-   ```
-   - Previews the changes Terraform will make to your infrastructure.
-   - Use to review changes before applying.
+### Initialize Terraform
+```bash
+terraform init
+```
+- This initializes the working directory.
+- It will download all required provider plugins.
 
-4. **Apply Changes**
-   ```bash
-   terraform apply
-   ```
-   - Applies changes based on `.tf` files.
-   - Proceeds to create, update, or delete resources.
+### Preview Changes
+```bash
+terraform plan
+```
+- Used to preview the changes that Terraform will make to your infrastructure.
+- Lets you review changes before applying them.
 
-5. **Skip Confirmation**
-   ```bash
-   terraform apply -auto-approve
-   ```
+### Apply Changes
+```bash
+terraform apply
+```
+- Applies the changes defined in `.tf` configuration files.
+- Proceeds to create, update, or delete resources.
 
-## Terraform Output and Resource References
+### Skip Confirmation
+```bash
+terraform apply -auto-approve
+```
+- Skips the manual confirmation step.
 
-- When a resource is created, it can output a value that can be used by other resources.
-  ```hcl
-  vpc_security_group_ids = aws_security_group.allow_all.id
-  ```
+## Step 3: Using Outputs from Created Resources
 
-## Variables
+When you create a resource, you can use its output in other resources.  
+Example:
+```hcl
+vpc_security_group_ids = aws_security_group.allow_all.id
+```
 
-- Variables are used to assign default values.
-- You can override defaults in multiple ways:
+## Step 4: Variables
 
-### Precedence Order
+- Variables allow you to set default values.
+- If you don't want to use default values, you can override them.
+
+### Ways to Override Variables (Precedence Order):
 
 1. **Command Line**
    ```bash
    terraform plan -var "sg_name=cmd_allow_all"
    ```
-2. **`.tfvars` File** (e.g., `variable.tfvars`)
+2. **`.tfvars` File**
+   - Use a file like `variables.tfvars` to store variable values.
 3. **Environment Variables**
    ```bash
    export TF_VAR_sg_name=env_allow_all
-   unset TF_VAR_sg_name  # Reset to use default
+   unset TF_VAR_sg_name  # Unset to fall back to default
    ```
 4. **Default Values**
 5. **Prompt Input**
+   - If no value is provided, Terraform will prompt for it.
 
-## Conditions
+## Step 5: Conditions
 
+Use a ternary expression like this:
 ```hcl
 condition ? "this value is true" : "this value is false"
 ```
 
-## Loops
+## Step 6: Loops
 
 ### 1. Count-Based Loops
-
-- Define count in the resource block.
-- Use `count.index` to iterate.
+- Define `count` in the resource block.
+- Use `count.index` to iterate over the instances.
 
 ### 2. For Loops
 
-- **Use `count`** for **lists**
-- **Use `for_each`** for **maps or sets**
-- **Use `dynamic` block** for complex structures
+Use based on data structure:
+- Use `count` if you have a **list**
+- Use `for_each` if you have a **map or set**
+- Use **dynamic block** for complex nested structures.
 
-## Interpolation
+## Step 7: Interpolation
 
-- Combine variables with strings:
+- Combine variables with strings using `${}` syntax:
   ```hcl
-  "Hello, ${var.name}"
+  "Security group name is ${var.sg_name}"
   ```
