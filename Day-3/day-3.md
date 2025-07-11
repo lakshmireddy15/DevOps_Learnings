@@ -5,8 +5,9 @@ Here, a lot of data is wasted, so this is called **inefficiency**.
 
 With the concept of **virtualization**, we install a **hypervisor**.
 
-- **Hypervisor** is a software that can be installed on a physical machine.
+- **Hypervisor** is a software that can be installed on a physical machine (not inside the VM).
 - Here we can do **logical isolation**.
+- In AWS, you don’t see the physical machine, but behind the scenes
 - We add **efficiency** using the hypervisor by logically separating resources.
 - There is **no dependency** between all VMs — every VM has its own CPU, RAM, and all other components.
 
